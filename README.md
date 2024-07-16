@@ -82,10 +82,11 @@ buylist
 
 ## list
 
-| Column  | Type       | Options                        |
-|---------|------------|--------------------------------|
-| content | string     | null: false                    |
-| user    | references | null: false, foreign_key: true |
+| Column   | Type       | Options                        |
+|----------|------------|--------------------------------|
+| content  | string     | null: false                    |
+| quantity | string     |                                |
+| user     | references | null: false, foreign_key: true |
 
 ### Association
 
