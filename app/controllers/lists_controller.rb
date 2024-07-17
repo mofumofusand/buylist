@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit, :destroy, :show]
   before_action :set_list, only: [:edit, :update]
   before_action :move_to_index, except: [:index, :show]
 
@@ -45,6 +45,9 @@ class ListsController < ApplicationController
       redirect_to root_path
     else
       redirect_to root_path
+    end
+
+    def show
     end
   end
 

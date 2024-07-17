@@ -80,7 +80,7 @@ buylist
 - has_many :categories
 
 
-## list
+## lists
 
 | Column   | Type       | Options                        |
 |----------|------------|--------------------------------|

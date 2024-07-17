@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_17_062911) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_17_164941) do
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "tag_name", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "category_lists", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "list_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_lists_on_category_id"
+    t.index ["list_id"], name: "index_category_lists_on_list_id"
   end
 
   create_table "lists", charset: "utf8mb4", force: :cascade do |t|
@@ -42,5 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_17_062911) do
   end
 
   add_foreign_key "categories", "users"
+  add_foreign_key "category_lists", "categories"
+  add_foreign_key "category_lists", "lists"
   add_foreign_key "lists", "users"
 end
