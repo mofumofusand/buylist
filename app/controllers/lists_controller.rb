@@ -7,12 +7,14 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = List.new
+    @list_form = ListForm.new
   end
 
   def create
-    @list = List.new(list_params)
-    if @list.save
+    binding.pry
+    @list_form = ListForm.new(list_form_params)
+    if @list_form.valid? 
+      @list_form.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
@@ -21,8 +23,8 @@ class ListsController < ApplicationController
 
   private
 
-  def list_params
-    params.require(:list).permit(:content, :quantity).merge(user_id: current_user.id)
+  def list_form_params
+    params.require(:list_form).permit(:content, :quantity).merge(user_id: current_user.id)
   end
 
   def move_to_index
