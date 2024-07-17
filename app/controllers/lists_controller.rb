@@ -6,8 +6,24 @@ class ListsController < ApplicationController
   def index
   end
 
+  def new
+    @list = List.new
+  end
+
+  def create
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   private
+
+  def list_params
+    params.require(:list).permit(:content, :quantity).merge(user_id: current_user.id)
+  end
 
   def move_to_index
     unless user_signed_in?

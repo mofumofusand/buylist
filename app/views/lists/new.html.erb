@@ -1,0 +1,10 @@
+<div class="contents row">
+  <div class="container">
+    <h3>追加ページ</h3>
+    <%= form_with(model: @list, local: true) do |form| %>
+      <%= form.text_field :content, placeholder: "購入する物" %>
+      <%= form.text_field :quantity, placeholder: "数量や個数" %>
+      <%= form.submit "追加" %>
+    <% end %>
+  </div>
+</div>
