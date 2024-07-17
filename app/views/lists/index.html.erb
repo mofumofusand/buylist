@@ -2,5 +2,26 @@
 
 <div class="main">
   <%= link_to "追加ページ", new_list_path %>
-  <div>ジャンル</div>
+  <%# 買い物リスト一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>買い物リスト</h2>
+    <div class="subtitle" >
+      新規投稿商品
+    </div>
+    <ul class='item-lists'>
+      <% @lists.each do |list| %>
+      <li class='list'>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= list.content %>
+          </h3>
+          <div class='item-price'>
+            <span><%= list.quantity %>円</span>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <%# /買い物リスト一覧 %>
 </div>
