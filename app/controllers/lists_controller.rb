@@ -6,6 +6,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @categories = Category.all
   end
 
   def new
@@ -25,6 +26,7 @@ class ListsController < ApplicationController
   def edit
     list_attributes = @list.attributes
     @list_form = ListForm.new(list_attributes)
+    @list_form.tag_name = @list.categories.first&.tag_name
   end
 
   def update
@@ -55,7 +57,7 @@ class ListsController < ApplicationController
   private
 
   def list_form_params
-    params.require(:list_form).permit(:content, :quantity).merge(user_id: current_user.id)
+    params.require(:list_form).permit(:content, :quantity, :tag_name).merge(user_id: current_user.id)
   end
 
   def set_list

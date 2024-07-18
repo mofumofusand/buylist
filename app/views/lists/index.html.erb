@@ -6,7 +6,10 @@
   <div class='item-contents'>
     <h2 class='title'>買い物リスト</h2>
     <div class="subtitle" >
-      ここにカテゴリーを表示
+      ここにカテゴリーを表示<br>
+      <% @categories.each do |category| %>
+        <%= category.tag_name%>
+      <% end %>
     </div>
     <ul class='item-lists'>
       <% @lists.each do |list| %>
