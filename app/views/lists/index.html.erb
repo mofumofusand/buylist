@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 
 <div class="main">
-  <%= link_to "追加ページ", new_list_path %>
+
   <%# 買い物リスト一覧 %>
-  <div class='item-contents'>
+  <div class='list-contents'>
     <h2 class='title'>買い物リスト</h2>
     <div class="subtitle" >
       登録されてるカテゴリー<br>
@@ -16,21 +16,26 @@
         <% @lists.each do |list| %>
         <li class='list'>
           <%= link_to list_path(list.id) do %>
-          <div class='item-info'>
-            <div class='item-name'>
+          <div class='list-info'>
+            <div class='list-name'>
               <%= list.content %>
             </div>
-            <div class='item-quantity'>
+            <div class='list-quantity'>
               <%= list.quantity %>
             </div>
+          </div>
+          <% end %>
+          <div class="edit-destroy">
             <%= link_to "編集", edit_list_path(list.id), method: :get, class: "list-red-btn" %>
             <%= link_to "削除", list_path(list.id), data: {turbo_method: :delete}, class:"list-destroy" %>
           </div>
-          <% end %>
         </li>
         <% end %>
       </ul>
     </div>
+  </div>
+  <div class="list-new">
+    <%= link_to "追加ページ", new_list_path, class:"new-list" %>
   </div>
   <%# /買い物リスト一覧 %>
 </div>
