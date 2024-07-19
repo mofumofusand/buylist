@@ -8,6 +8,7 @@
       <%= form.text_field :quantity, placeholder: "数量や個数" %>
       <div class="tag-field">
         <%= form.text_field :tag_name, placeholder: 'カテゴリー' %>
+        <div id="search-result"></div>
       </div>
       <%= form.submit "追加" %>
     <% end %>

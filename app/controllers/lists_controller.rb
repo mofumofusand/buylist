@@ -54,6 +54,12 @@ class ListsController < ApplicationController
   def show
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    category = Category.where(['tag_name LIKE ?', "%#{params[:keyword]}%"] )
+    render json:{ keyword: category }
+  end
+
   private
 
   def list_form_params
