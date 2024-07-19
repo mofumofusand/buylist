@@ -19,7 +19,8 @@ class ListForm
 
   def update(params, list)
     list.category_lists.destroy_all
-    tag_name = params.delete(:tag_name,)
+    tag_name = params.delete(:tag_name)
+    Category.create(tag_name: tag_name, user_id: user_id)
     category = Category.where(tag_name: tag_name).first_or_initialize if tag_name.present?
     category.save if tag_name.present?
     list.update(params)

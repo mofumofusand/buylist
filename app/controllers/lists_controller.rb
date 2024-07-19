@@ -1,12 +1,13 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy, :show]
-  before_action :set_list, only: [:edit, :update]
+  before_action :set_list, only: [:edit, :update, :show]
   before_action :move_to_index, except: [:index, :show]
 
 
   def index
     @lists = List.all
     @categories = Category.all
+    @category_lists = CategoryList.all
   end
 
   def new

@@ -1,3 +1,7 @@
 .item-info {
   display: flex;
 }
+
+.categories {
+  display: flex;
+}
