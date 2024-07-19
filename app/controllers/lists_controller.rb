@@ -49,11 +49,10 @@ class ListsController < ApplicationController
     else
       redirect_to root_path
     end
-
-    def show
-    end
   end
 
+  def show
+  end
 
   private
 
