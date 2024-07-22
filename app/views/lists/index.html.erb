@@ -17,11 +17,11 @@
         <h2><%= category.tag_name %></h2>
           <% category.lists.each do |list| %>
             <li class='list'>
-              <%= link_to list_path(list.id) do %>
               <div class='list-info'>
                 <div class='list-name'>
-                  <%= list.content %>
+                 <label><input type="checkbox" name="option" value="value1" class="checkbox"><%= list.content %></label>
                 </div>
+                <%= link_to list_path(list.id) do %>
                 <div class='list-quantity'>
                   <%= list.quantity %>
                 </div>
