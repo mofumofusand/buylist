@@ -55,9 +55,8 @@ class ListsController < ApplicationController
   end
 
   def search
-    return nil if params[:keyword] == ""
-    category = Category.where(['tag_name LIKE ?', "%#{params[:keyword]}%"] )
-    render json:{ keyword: category }
+    @q = Category.ransack(params[:q])
+    @categories = @q.result
   end
 
   private
