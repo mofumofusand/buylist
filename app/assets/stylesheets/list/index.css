@@ -1,5 +1,5 @@
 .main {
-  background-color:aqua;
+  background-color:lightblue;
 }
 
 .title {
@@ -14,7 +14,7 @@
   display:flex;
   flex-direction: column;
   align-items: center;
-  background-color: orange;
+  background-color: lightblue;
 }
 
 .list a {
@@ -43,5 +43,6 @@ color: black;
 .list-new a {
   text-decoration: none;
   font-size: 30px;
-  color: lime;
+  color: darkblue;
+  margin-right: 250px;
 }

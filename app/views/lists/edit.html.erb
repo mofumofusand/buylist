@@ -1,9 +1,12 @@
 <%= render "shared/second-header"%>
 
-<div class="contents row">
+<div class="main-contents">
   <div class="container">
-    <h3>編集ページ</h3>
+    <div class="text">
+      <h3>編集ページ</h3>
+    </div>
     <%= form_with model: @list_form,  url: list_path(@list.id), method: :patch, local: true do |form| %>
+    <div class="content">
       <%= form.text_field :content, placeholder: "購入する物" %>
       <%= form.text_field :quantity, placeholder: "数量や個数" %>
       <div class="tag-field">
@@ -11,6 +14,7 @@
       </div>
       <%= form.submit "編集" %>
       <%= link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
     <% end %>
   </div>
 </div>

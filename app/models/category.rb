@@ -7,6 +7,11 @@ class Category < ApplicationRecord
   validates :tag_name, uniqueness: true
 
   def self.ransackable_attributes(auth_object = nil)
-    ["tag_name"]
+    ["id", "tag_name"]
+  end
+
+ 
+  def self.ransackable_associations(auth_object = nil)
+    ["lists"]
   end
 end

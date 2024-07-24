@@ -12,5 +12,5 @@ class CategoryList < ApplicationRecord
     categories_without_association = Category.where.not(id: CategoryList.pluck(:category_id).uniq)
     categories_without_association.destroy_all
   end
-
+  
 end
