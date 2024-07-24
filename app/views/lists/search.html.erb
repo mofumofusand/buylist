@@ -4,9 +4,9 @@
 <div class='item-contents' id="detailed-search-result-wrapper">
   <%= search_form_for @q, url: search_lists_path, html: {id: "detailed-search-form"} do |f| %>
     <div class="search-field">
-      <%= f.label :category_id_in, 'カテゴリ' %>
+      <%= f.label :categories_id_in, 'カテゴリ' %>
       <br>
-      <%= f.collection_check_boxes(:categories_id_in, Category.all, :id, :tag_name) %>
+      <%= f.collection_check_boxes(:id_in, Category.all, :id, :tag_name) %>
     </div>
     <%= f.submit '検索' %>
   <% end %>

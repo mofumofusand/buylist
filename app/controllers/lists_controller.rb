@@ -55,9 +55,8 @@ class ListsController < ApplicationController
   end
 
   def search
-    @q = List.ransack(params[:q])
-    @lists = @q.result(distinct: true)
-    @categories = Category.all
+    @q = Category.ransack(params[:q])
+    @categories = @q.result(distinct: true)
   end
 
   private

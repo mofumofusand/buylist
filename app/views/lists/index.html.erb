@@ -13,7 +13,7 @@
     </div>
     <div class="categories">
       <ul class='item-lists'>
-        <h3><%= link_to '商品検索', search_lists_path%></h3>
+        <h3><%= link_to 'カテゴリ検索', search_lists_path%></h3>
         <% @categories.each do |category| %>
         <h2><%= category.tag_name %></h2>
           <% category.lists.each do |list| %>
