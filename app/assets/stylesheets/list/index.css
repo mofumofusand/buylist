@@ -1,5 +1,11 @@
+li {
+  list-style: none;
+}
+
 .main {
+  height: 100vh;
   background-color:lightblue;
+  padding-top: 20px;
 }
 
 .title {
@@ -9,6 +15,28 @@
 .subtitle {
   font-size: 30px;
 }
+
+
+.category a {
+  text-decoration: none;
+  color: blue;
+  border: 1px solid lightgray;
+  background-color: yellow;
+  font-size: 20px;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
+.tags {
+  margin-right: 100px;
+}
+
+
+.item-lists {
+  margin: 20px 0 0 90px;
+  display: flex;
+}
+
 
 .list-contents {
   display:flex;

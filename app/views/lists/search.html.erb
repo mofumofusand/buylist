@@ -1,36 +1,38 @@
 <%= render "shared/second-header"%>
-<h3>検索ページ</h3>
-<h3><%= link_to 'トップページへ戻る', root_path%></h3>
-<div class='item-contents' id="detailed-search-result-wrapper">
-  <%= search_form_for @q, url: search_lists_path, html: {id: "detailed-search-form"} do |f| %>
-    <div class="search-field">
-      <%= f.label :categories_id_in, 'カテゴリ' %>
-      <br>
-      <%= f.collection_check_boxes(:id_in, Category.all, :id, :tag_name) %>
-    </div>
-    <%= f.submit '検索' %>
-  <% end %>
-  <ul class='item-lists' id="detailed-search-result">
-    <% @categories.each do |category| %>
-      <li class='list'>
-        <div class="posted-content">
-        <h2><%= category.tag_name %></h2>
-          <% category.lists.each do |list| %>
-            <li class='list'>
-              <div class='list-info'>
-                <div class='list-name'>
-                 <label><input type="checkbox" name="option" value="value1" class="checkbox"><%= list.content %></label>
-                </div>
-                <%= link_to list_path(list.id) do %>
-                <div class='list-quantity'>
-                  <%= list.quantity %>
-                </div>
-                <% end %>
-              </div>
-            </li>
-          <% end %>
-        </div>
-      </li>
+<div class="main-search">
+  <div class="search">
+    <h3>検索ページ</h3>
+    <h3><%= link_to 'トップページへ戻る', root_path%></h3>
+  </div>
+  <div class='item-contents' id="detailed-search-result-wrapper">
+    <%= search_form_for @q, url: search_lists_path, html: {id: "detailed-search-form"} do |f| %>
+      <div class="search-field">
+        <%= f.label :categories_id_in, 'カテゴリ' %>
+        <br>
+        <%= f.collection_check_boxes(:id_in, Category.all, :id, :tag_name) %>
+      </div>
+      <%= f.submit '検索' %>
     <% end %>
-  </ul>
+    <ul class='item-lists' id="detailed-search-result">
+      <% @categories.each do |category| %>
+        <li class='list'>
+          <div class="posted-content">
+          <h2><%= category.tag_name %></h2>
+            <% category.lists.each do |list| %>
+              <li class='list'>
+                <div class='list-info'>
+                  <div class='list-name'>
+                    <label><input type="checkbox" name="option" value="value1" class="checkbox"><%= list.content %></label>
+                  </div>
+                  <div class='list-quantity'>
+                    <%= list.quantity %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
