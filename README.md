@@ -54,9 +54,9 @@ buylist
 # 実装予定の機能
     一覧表示画面の投稿内容横にチェックボックスを作成し、チェックが入れば内容に横線が入るように実装予定です
 # データベース設計
-    [![Image from Gyazo](https://i.gyazo.com/8ad6316736ccbc97a8dd38d738d0c993.png)](https://gyazo.com/8ad6316736ccbc97a8dd38d738d0c993)
+[![Image from Gyazo](https://i.gyazo.com/8ad6316736ccbc97a8dd38d738d0c993.png)](https://gyazo.com/8ad6316736ccbc97a8dd38d738d0c993)
 # 画面遷移図
-    [![Image from Gyazo](https://i.gyazo.com/f9eaed48cf9fdef5bb0bd5a9c3218b8c.png)](https://gyazo.com/f9eaed48cf9fdef5bb0bd5a9c3218b8c)
+[![Image from Gyazo](https://i.gyazo.com/f9eaed48cf9fdef5bb0bd5a9c3218b8c.png)](https://gyazo.com/f9eaed48cf9fdef5bb0bd5a9c3218b8c)
 # 開発環境
 # ローカルでの動作方法
 # 工夫したポイント

@@ -3,4 +3,27 @@
   width: 100%;
   background-color: lightblue;
   padding: 10px 0 0 20px;
+  display: flex;
+}
+
+.left-bar {
+  height: 100vh;
+  width: 300px;
+}
+
+.search {
+  height: 50px;
+}
+.top-link a {
+  text-decoration: none;
+  color: black;
+}
+
+.item-contents {
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.search-category {
+
 }
