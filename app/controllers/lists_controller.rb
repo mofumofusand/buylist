@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy, :show]
   before_action :set_list, only: [:edit, :update, :show]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:search, :show]
 
 
   def index
@@ -71,7 +71,7 @@ class ListsController < ApplicationController
 
   def move_to_index
     unless user_signed_in?
-      redirect_to action: :index
+      redirect_to action: :seach
     end
   end
 end

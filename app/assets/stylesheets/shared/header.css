@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   height: 80px;
+  border-bottom: 2px solid gray;
 }
 
 .header-bar {
@@ -33,13 +34,16 @@
   margin-right: 200px;
   display: flex;
   font-size: 30px;
-
 }
 
 
 .user_nav a {
   text-decoration: none;
   color: blue;
+}
+
+.name {
+  margin-right:50px;
 }
 
 .post {

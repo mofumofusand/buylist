@@ -1,29 +1,98 @@
+li {
+  list-style: none;
+}
+
+
 .main-search {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: lightblue;
-  padding: 10px 0 0 20px;
   display: flex;
 }
 
 .left-bar {
   height: 100vh;
   width: 300px;
+  border-right: 2px solid gray;
+  background-color: ivory;
+}
+
+.search-lists {
+  padding: 10px 0 0 20px;
 }
 
 .search {
   height: 50px;
 }
-.top-link a {
-  text-decoration: none;
-  color: black;
-}
+
 
 .item-contents {
   height: 100%;
   margin-bottom: 50px;
 }
 
-.search-category {
+.right-bar {
+  height: 100vh;
+  width: calc(100vw - 100px);
+}
 
+
+.title {
+  font-size: 40px;
+}
+
+.list-contents {
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 120px 0 0;
+}
+
+
+.tags {
+  margin-right: 50px;
+}
+
+
+.item-lists {
+  margin: 20px 0 0 90px;
+  display: flex;
+}
+
+
+.list a {
+text-decoration: none;
+color: black;
+}
+
+.list-info {
+  display: flex;
+  font-size: 20px;
+}
+
+.list-name {
+  margin-right: 10px;
+}
+
+.edit-destroy{
+  margin-bottom: 20px;
+}
+
+.new-list {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list-new a {
+  text-decoration: none;
+  font-size: 30px;
+  color: darkblue;
+  margin-right: 250px;
+}
+
+.checked-class {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-decoration-color: orange;
 }

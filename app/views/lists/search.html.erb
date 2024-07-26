@@ -1,4 +1,4 @@
-<%= render "shared/second-header"%>
+<%= render "shared/header" %>
 <div class="main-search">
   <div class="left-bar">
     <div class="search-lists">
@@ -11,40 +11,51 @@
             <%= f.label :categories_id_in, 'カテゴリ' %>
             <br>
             <div class="search-category">
-              <%= f.collection_check_boxes(:id_in, Category.all, :id, :tag_name) %>
+              <%= f.collection_check_boxes(:id_in, Category.all, :id, :tag_name,) %>
             </div>
           </div>
           <%= f.submit '検索' %>
         <% end %>
       </div>
-      <div class="top-link">
-        <h3><%= link_to 'トップページへ戻る', root_path%></h3>
+    </div>
+  </div>
+   <%#<% if current_user.id == @list.user_id %>
+  <div class="right-bar">
+    <div class='list-contents'>
+      <h2 class='title'>買い物リスト</h2>
+      <div class="categories">
+        <ul class='item-lists'>
+          <% @categories.each do |category| %>
+          <div class="tags">
+            <div class="tag">
+              <h2><%= category.tag_name %></h2>
+            </div>
+            <% category.lists.each do |list| %>
+            <li class='list'>
+              <div class='list-info'>
+                <div class='list-name'>
+                    <label>
+                      <input type="checkbox" id="checkbox-<%= list.id %>" name="option" value="value1" class="checkbox">
+                      <span id="content-<%= list.id %>"><%= list.content %></span>
+                    </label>
+                </div>
+                <%= link_to list_path(list.id) do %>
+                <div class='list-quantity'>
+                  <%= list.quantity %>
+                </div>
+              </div>
+              <% end %>
+              <div class="edit-destroy">
+                <%= link_to "編集", edit_list_path(list.id), method: :get, class: "list-red-btn" %>
+                <%= link_to "削除", list_path(list.id), data: {turbo_method: :delete}, class:"list-destroy" %>
+              </div>
+            </li>
+            <% end %>
+          </div>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
-  <div class="right-bar">
-    <div class="categories">
-      <ul class='item-lists'>
-        <% @categories.each do |category| %>
-        <div class="tags">
-          <div class="tag">
-            <h2><%= category.tag_name %></h2>
-          </div>
-          <% category.lists.each do |list| %>
-          <li class='list'>
-            <div class='list-info'>
-              <div class='list-name'>
-                <label><input type="checkbox" name="option" value="value1" class="checkbox"><%= list.content %>
-              </div>
-              <div class='list-quantity'>
-                <%= list.quantity %>
-              </div>
-            </div>
-          </li>
-          <% end %>
-        </div>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+  <%#<% end %>
 </div>
