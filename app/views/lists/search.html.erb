@@ -1,5 +1,5 @@
 <%= render "shared/header" %>
-<div class="main-search">
+<div class="main-view">
   <div class="left-bar">
     <div class="search-lists">
       <div class="search">
@@ -22,40 +22,40 @@
   <div class="right-bar">
     <div class='list-contents'>
       <h2 class='title'>買い物リスト</h2>
-      <div class="categories">
-        <ul class='item-lists'>
-          <% @categories.each do |category| %>
-          <% if current_user && current_user.id == category.user_id %>
-            <div class="tags">
-              <div class="tag">
-                <h2><%= category.tag_name %></h2>
-              </div>
-              <% category.lists.each do |list| %>
-              <li class='list'>
-                <div class='list-info'>
-                  <div class='list-name'>
-                      <label>
-                        <input type="checkbox" id="checkbox-<%= list.id %>" name="option" value="value1" class="checkbox">
-                        <span id="content-<%= list.id %>"><%= list.content %></span>
-                      </label>
-                  </div>
-                  <%= link_to list_path(list.id) do %>
-                  <div class='list-quantity'>
-                    <%= list.quantity %>
-                  </div>
+        <div class="categories">
+          <ul class='item-lists'>
+            <% @categories.each do |category| %>
+            <% if current_user && current_user.id == category.user_id %>
+              <div class="tags">
+                <div class="tag">
+                  <h2><%= category.tag_name %></h2>
                 </div>
+                <% category.lists.each do |list| %>
+                <li class='list'>
+                  <div class='list-info'>
+                    <div class='list-name'>
+                        <label>
+                          <input type="checkbox" id="checkbox-<%= list.id %>" name="option" value="value1" class="checkbox">
+                          <span id="content-<%= list.id %>"><%= list.content %></span>
+                        </label>
+                    </div>
+                    <%= link_to list_path(list.id) do %>
+                      <div class='list-quantity'>
+                        <%= list.quantity %>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="edit-destroy">
+                    <%= link_to "編集", edit_list_path(list.id), method: :get, class: "list-red-btn" %>
+                    <%= link_to "削除", list_path(list.id), data: {turbo_method: :delete}, class:"list-destroy" %>
+                  </div>
+                </li>
                 <% end %>
-                <div class="edit-destroy">
-                  <%= link_to "編集", edit_list_path(list.id), method: :get, class: "list-red-btn" %>
-                  <%= link_to "削除", list_path(list.id), data: {turbo_method: :delete}, class:"list-destroy" %>
-                </div>
-              </li>
-              <% end %>
-            </div>
-        <% end %>
-          <% end %>
-        </ul>
-      </div>
+              </div>
+            <% end %>
+            <% end %>
+          </ul>
+        </div>
     </div>
   </div>
 </div>

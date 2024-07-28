@@ -1,12 +1,12 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy, :show]
   before_action :set_list, only: [:edit, :update, :show]
-  before_action :move_to_index, except: [:search, :show]
+  before_action :move_to_index, except: [:index, :show]
 
 
   def index
     @lists = List.all
-    @categories = Category.all
+    @categories = @lists.map { |list| list.categories }.flatten.uniq
     @category_lists = CategoryList.all
   end
 
@@ -15,6 +15,7 @@ class ListsController < ApplicationController
   end
 
   def create
+    binding.pry
     @list_form = ListForm.new(list_form_params)
     if @list_form.valid? 
       @list_form.save
@@ -62,7 +63,7 @@ class ListsController < ApplicationController
   private
 
   def list_form_params
-    params.require(:list_form).permit(:content, :quantity, :tag_name).merge(user_id: current_user.id)
+    params.require(:list_form).permit(:content, :quantity, :tag_name,).merge(user_id: current_user.id)
   end
 
   def set_list
@@ -71,7 +72,7 @@ class ListsController < ApplicationController
 
   def move_to_index
     unless user_signed_in?
-      redirect_to action: :seach
+      redirect_to action: :index
     end
   end
 end
