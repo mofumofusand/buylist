@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy, :show]
-  before_action :set_list, only: [:edit, :update, :show]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_list, only: [:edit, :update]
+  before_action :move_to_index, except: [:index]
 
 
   def index
@@ -49,9 +49,6 @@ class ListsController < ApplicationController
     else
       redirect_to root_path
     end
-  end
-
-  def show
   end
 
   def search
