@@ -15,7 +15,6 @@ class ListsController < ApplicationController
   end
 
   def create
-    binding.pry
     @list_form = ListForm.new(list_form_params)
     if @list_form.valid? 
       @list_form.save
