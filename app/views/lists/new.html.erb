@@ -6,6 +6,9 @@
       <h3>追加ページ</h3>
     </div>
     <%= form_with model: @list_form,  url: lists_path, local: true do |form| %>
+
+    <%= render 'shared/error_messages', model: form.object %>
+
     <div class="content">
       <%= form.text_field :content, placeholder: "購入する物" %>
       <%= form.text_field :quantity, placeholder: "数量や個数" %>
